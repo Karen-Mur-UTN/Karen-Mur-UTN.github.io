@@ -1,13 +1,7 @@
 * {
-  color: #fdfffc;
+  color: #fdfffc;  
 }
 body {
-  background-color: #011627;
-}
-header { 
-  background-color: #011627;
-}
-footer {
   background-color: #011627;
 }
 form {
@@ -25,6 +19,7 @@ button {
 input {
   color: #011627;
 }
+
 .instrucciones {
   text-align: center;
 }
