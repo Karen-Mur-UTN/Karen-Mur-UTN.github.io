@@ -4,6 +4,12 @@
 body {
   background-color: #011627;
 }
+header { 
+  background-color: #011627;
+}
+footer {
+  background-color: #011627;
+}
 form {
   margin-top: 30px;
 }
