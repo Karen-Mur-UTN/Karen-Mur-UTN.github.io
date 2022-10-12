@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor texto a Pinyin</title>
+    <script src="./js/script.js"></script>
+    <script language="JavaScript1.2"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main class="container mt-3">
+      <div class="row justify-content-center">
+        <div class="col-md-9 col-sm-12 pt-3 px-3 fondo-suave">
+          <h1>Teclado Pīnyīn</h1>
+          <p>Hay dos formas de escribir caracteres con marca tonal.</p>
+          <ol>
+            <li>
+              <h4>Automático, escribiendo el número de tono</h4>
+              <p class="text-muted">
+                Escriba el número de tono junto a la sílaba. <br />Por ejemplo:
+                Ni3 Hao3 = Nǐ Hǎo
+              </p>
+            </li>
+            <li>
+              <h4>Teclado Pīnyīn</h4>
+              <p class="text-muted">
+                Utilice los botones para insertar el tono en el texto.
+              </p>
+            </li>
+          </ol>
+        </div>
+        <div class="row justify-content-center px-2">
+          <div class="col-auto col-md-9 col-sm-12 text-center">
+            <form name="conversion" id="conversion" method="post">
+              <div class="border px-xl-4 pt-xl-2 p-2 text-center">
+                <textarea
+                  name="saisie"
+                  id="saisie"
+                  rows="6"
+                  class="ctpinyintextarea form-control m-auto"
+                  onkeyup="transcrire()"
+                >
+                </textarea
+                ><br />
+                <input
+                  type="button"
+                  onclick="adchar('ā')"
+                  value="ā"
+                  class="ctpinyinbutton color-1"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('á')"
+                  value="á"
+                  class="ctpinyinbutton color-1"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ǎ')"
+                  value="ǎ"
+                  class="ctpinyinbutton color-1"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('à')"
+                  value="à"
+                  class="ctpinyinbutton color-1"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ē')"
+                  value="ē"
+                  class="ctpinyinbutton color-2"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('é')"
+                  value="é"
+                  class="ctpinyinbutton color-2"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ě')"
+                  value="ě"
+                  class="ctpinyinbutton color-2"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('è')"
+                  value="è"
+                  class="ctpinyinbutton color-2"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ō')"
+                  value="ō"
+                  class="ctpinyinbutton color-3"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ó')"
+                  value="ó"
+                  class="ctpinyinbutton color-3"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ǒ')"
+                  value="ǒ"
+                  class="ctpinyinbutton color-3"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ò')"
+                  value="ò"
+                  class="ctpinyinbutton color-3"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ī')"
+                  value="ī"
+                  class="ctpinyinbutton color-4"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('í')"
+                  value="í"
+                  class="ctpinyinbutton color-4"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ǐ')"
+                  value="ǐ"
+                  class="ctpinyinbutton color-4"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ì')"
+                  value="ì"
+                  class="ctpinyinbutton color-4"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ū')"
+                  value="ū"
+                  class="ctpinyinbutton color-5"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ú')"
+                  value="ú"
+                  class="ctpinyinbutton color-5"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ǔ')"
+                  value="ǔ"
+                  class="ctpinyinbutton color-5"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ù')"
+                  value="ù"
+                  class="ctpinyinbutton color-5"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ǖ')"
+                  value="ǖ"
+                  class="ctpinyinbutton color-6"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ǘ')"
+                  value="ǘ"
+                  class="ctpinyinbutton color-6"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ǚ')"
+                  value="ǚ"
+                  class="ctpinyinbutton color-6"
+                />
+                <input
+                  type="button"
+                  onclick="adchar('ǜ')"
+                  value="ǜ"
+                  class="ctpinyinbutton color-6"
+                />
+              </div>
+            </form>
+            <button
+              onclick="copyText()"
+              class="btn btn-lg btn-primary mt-2"
+              aria-describedby="tooltip"
+              id="button"
+              
+            >
+              Copiar texto
+            </button>
+            <div id="tooltip" role="tooltip">
+              Texto copiado
+              <div id="arrow" data-popper-arrow></div>
+            </div>
+            <button onclick="eraseText()" class="btn btn-lg btn-secondary mt-2">
+              Borrar texto
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- <button id="button" aria-describedby="tooltip">My button</button>
+    <div id="tooltip" role="tooltip">
+      My tooltip
+      <div id="arrow" data-popper-arrow></div>
+    </div> -->
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script>
+      const button = document.querySelector("#button");
+      const tooltip = document.querySelector("#tooltip");
+
+      const popperInstance = Popper.createPopper(button, tooltip, {
+        modifiers: [
+          {
+            name: "offset",
+            options: {
+              offset: [0, 8],
+            },
+          },
+        ],
+      });
+
+      function show() {
+        tooltip.setAttribute("data-show", "");
+        popperInstance.update();
+      }
+
+      function hide() {
+        tooltip.removeAttribute("data-show");
+      }
+
+      const showEvents = ["click", "focus"];
+      const hideEvents = ["mouseleave", "blur"];
+
+      showEvents.forEach((event) => {
+        button.addEventListener(event, show);
+      });
+
+      hideEvents.forEach((event) => {
+        button.addEventListener(event, hide);
+      });
+    </script>
+  </body>
+</html>

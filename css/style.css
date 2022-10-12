@@ -1,0 +1,105 @@
+* {
+  font-family: fantasy;
+  color: #fdfffc;
+}
+body {
+  background-color: #011627;
+}
+form {
+  margin-top: 30px;
+}
+textarea {
+  font-size: large;
+  margin-bottom: 10px;
+  color: #011627;
+}
+button {
+  color: #011627;
+  border: none;
+}
+input {
+  color: #011627;
+}
+.instrucciones {
+  text-align: center;
+}
+.ctpinyinbutton {
+  border: none;
+  border-radius: 3px;
+  padding: 3px 5px;
+  width: 25px;
+}
+.ctpinyinbutton:active {
+  font-weight: bold;
+}
+
+.color-1 {
+  background-color: #a798b4;
+}
+.color-2 {
+  background-color: #b4beda;
+}
+.color-3 {
+  background-color: #c8e0d9;
+}
+.color-4 {
+  background-color: #ebd0bc;
+}
+.color-5 {
+  background-color: #f1c2c6;
+}
+.color-6 {
+  background-color: #f7b5cd;
+}
+.fondo-suave {
+  background-color: #010b1370;
+  border-radius: 10px;
+}
+
+#tooltip {
+  background: #333;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  display: none;
+}
+
+#arrow,
+#arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+}
+
+#arrow {
+  visibility: hidden;
+}
+
+#arrow::before {
+  visibility: visible;
+  content: "";
+  transform: rotate(45deg);
+}
+
+#tooltip[data-popper-placement^="top"] > #arrow {
+  bottom: -4px;
+}
+
+#tooltip[data-popper-placement^="bottom"] > #arrow {
+  top: -4px;
+}
+
+#tooltip[data-popper-placement^="left"] > #arrow {
+  right: -4px;
+}
+
+#tooltip[data-popper-placement^="right"] > #arrow {
+  left: -4px;
+}
+
+#tooltip[data-show] {
+  display: block;
+}
