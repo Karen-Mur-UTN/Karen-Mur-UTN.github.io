@@ -1,97 +1,117 @@
 function transcrire() {
-  var car = document.conversion.saisie.value;
+  var area = document.getElementById("textoUsuario");
 
-  car = car.replace(/a1/g, "ā");
-  car = car.replace(/a2/g, "á");
-  car = car.replace(/a3/g, "ǎ");
-  car = car.replace(/a4/g, "à");
-  car = car.replace(/e1/g, "ē");
-  car = car.replace(/e2/g, "é");
-  car = car.replace(/e3/g, "ě");
-  car = car.replace(/e4/g, "è");
-  car = car.replace(/i1/g, "ī");
-  car = car.replace(/i2/g, "í");
-  car = car.replace(/i3/g, "ǐ");
-  car = car.replace(/i4/g, "ì");
-  car = car.replace(/o1/g, "ō");
-  car = car.replace(/o2/g, "ó");
-  car = car.replace(/o3/g, "ǒ");
-  car = car.replace(/o4/g, "ò");
-  car = car.replace(/u1/g, "ū");
-  car = car.replace(/u2/g, "ú");
-  car = car.replace(/u3/g, "ǔ");
-  car = car.replace(/u4/g, "ù");
-  car = car.replace(/ü1/g, "ǖ");
-  car = car.replace(/ü2/g, "ǘ");
-  car = car.replace(/ü3/g, "ǚ");
-  car = car.replace(/ü4/g, "ǜ");
-  car = car.replace(/an1/g, "ān");
-  car = car.replace(/an2/g, "án");
-  car = car.replace(/an3/g, "ǎn");
-  car = car.replace(/an4/g, "àn");
-  car = car.replace(/ang1/g, "āng");
-  car = car.replace(/ang2/g, "áng");
-  car = car.replace(/ang3/g, "ǎng");
-  car = car.replace(/ang4/g, "àng");
-  car = car.replace(/en1/g, "ēn");
-  car = car.replace(/en2/g, "én");
-  car = car.replace(/en3/g, "ěn");
-  car = car.replace(/en4/g, "èn");
-  car = car.replace(/eng1/g, "ēng");
-  car = car.replace(/eng2/g, "éng");
-  car = car.replace(/eng3/g, "ěng");
-  car = car.replace(/eng4/g, "èng");
-  car = car.replace(/in1/g, "īn");
-  car = car.replace(/in2/g, "ín");
-  car = car.replace(/in3/g, "ǐn");
-  car = car.replace(/in4/g, "ìn");
-  car = car.replace(/ong1/g, "ōng");
-  car = car.replace(/ong2/g, "óng");
-  car = car.replace(/ong3/g, "ǒng");
-  car = car.replace(/ong4/g, "òng");
-  car = car.replace(/un1/g, "ūn");
-  car = car.replace(/un2/g, "ún");
-  car = car.replace(/un3/g, "ǔn");
-  car = car.replace(/un4/g, "ùn");
-  car = car.replace(/er2/g, "ér");
-  car = car.replace(/er3/g, "ěr");
-  car = car.replace(/er4/g, "èr");
-  car = car.replace(/aō/g, "āo");
-  car = car.replace(/aó/g, "áo");
-  car = car.replace(/aǒ/g, "ǎo");
-  car = car.replace(/aò/g, "ào");
-  car = car.replace(/oū/g, "ōu");
-  car = car.replace(/oú/g, "óu");
-  car = car.replace(/oǔ/g, "ǒu");
-  car = car.replace(/où/g, "òu");
-  car = car.replace(/aī/g, "āi");
-  car = car.replace(/aí/g, "ái");
-  car = car.replace(/aǐ/g, "ǎi");
-  car = car.replace(/aì/g, "ài");
-  car = car.replace(/eī/g, "ēi");
-  car = car.replace(/eí/g, "éi");
-  car = car.replace(/eǐ/g, "ěi");
-  car = car.replace(/eī/g, "èi");
+  var getCount = function (str, search) {
+    return str.split(search).length - 1;
+  };
 
-  document.conversion.saisie.value = car;
+  var replaceText = function (search, replaceWith) {
+    if (area.value.indexOf(search) >= 0) {
+      var start = area.selectionStart;
+      var end = area.selectionEnd;
+      var textBefore = area.value.substr(0, end);
+      var lengthDiff =
+        (replaceWith.length - search.length) * getCount(textBefore, search);
+      area.value = area.value.replace(search, replaceWith);
+      area.selectionStart = start + lengthDiff;
+      area.selectionEnd = end + lengthDiff;
+    }
+  };
+
+  area.addEventListener("keypress", function (e) {
+    setTimeout(function () {
+      replaceText("==", "+");
+      replaceText("a1", "ā");
+      replaceText("a2", "á");
+      replaceText("a3", "ǎ");
+      replaceText("a4", "à");
+      replaceText("e1", "ē");
+      replaceText("e2", "é");
+      replaceText("e3", "ě");
+      replaceText("e4", "è");
+      replaceText("i1", "ī");
+      replaceText("i2", "í");
+      replaceText("i3", "ǐ");
+      replaceText("i4", "ì");
+      replaceText("o1", "ō");
+      replaceText("o2", "ó");
+      replaceText("o3", "ǒ");
+      replaceText("o4", "ò");
+      replaceText("u1", "ū");
+      replaceText("u2", "ú");
+      replaceText("u3", "ǔ");
+      replaceText("u4", "ù");
+      replaceText("ü1", "ǖ");
+      replaceText("ü2", "ǘ");
+      replaceText("ü3", "ǚ");
+      replaceText("ü4", "ǜ");
+      replaceText("an1", "ān");
+      replaceText("an2", "án");
+      replaceText("an3", "ǎn");
+      replaceText("an4", "àn");
+      replaceText("ang1", "āng");
+      replaceText("ang2", "áng");
+      replaceText("ang3", "ǎng");
+      replaceText("ang4", "àng");
+      replaceText("en1", "ēn");
+      replaceText("en2", "én");
+      replaceText("en3", "ěn");
+      replaceText("en4", "èn");
+      replaceText("eng1", "ēng");
+      replaceText("eng2", "éng");
+      replaceText("eng3", "ěng");
+      replaceText("eng4", "èng");
+      replaceText("in1", "īn");
+      replaceText("in2", "ín");
+      replaceText("in3", "ǐn");
+      replaceText("in4", "ìn");
+      replaceText("ong1", "ōng");
+      replaceText("ong2", "óng");
+      replaceText("ong3", "ǒng");
+      replaceText("ong4", "òng");
+      replaceText("un1", "ūn");
+      replaceText("un2", "ún");
+      replaceText("un3", "ǔn");
+      replaceText("un4", "ùn");
+      replaceText("er2", "ér");
+      replaceText("er3", "ěr");
+      replaceText("er4", "èr");
+      replaceText("aō", "āo");
+      replaceText("aó", "áo");
+      replaceText("aǒ", "ǎo");
+      replaceText("aò", "ào");
+      replaceText("oū", "ōu");
+      replaceText("oú", "óu");
+      replaceText("oǔ", "ǒu");
+      replaceText("où", "òu");
+      replaceText("aī", "āi");
+      replaceText("aí", "ái");
+      replaceText("aǐ", "ǎi");
+      replaceText("aì", "ài");
+      replaceText("eī", "ēi");
+      replaceText("eí", "éi");
+      replaceText("eǐ", "ěi");
+      replaceText("eī", "èi");
+    }, 0);
+  });
 }
 
-function adchar(char) {
-  var textarea = document.conversion.saisie;
-  if (document.selection) {
-    textarea.focus();
-    sel = document.selection.createRange();
-    sel.text = char;
-  } //IE support
-  else {
-    document.conversion.saisie.value += char;
-    textarea.focus();
-  }
+function adchar(specialChar) {
+  const textarea = document.getElementById("textoUsuario");
+  const insertStartPoint = textarea.selectionStart;
+  const insertEndPoint = textarea.selectionEnd;
+  let value = textarea.value;
+
+  value =
+    value.slice(0, insertStartPoint) +
+    specialChar +
+    value.slice(insertEndPoint);
+  textarea.value = value;
 }
- 
+
 function copyText() {
   // Get the text field
-  var copyText = document.getElementById("saisie");
+  var copyText = document.getElementById("textoUsuario");
 
   // Select the text field
   copyText.select();
@@ -105,14 +125,11 @@ function copyText() {
     // alert("Texto copiado: " + copyText.value);
     textarea.focus();
   }
-} 
+}
 
 function eraseText() {
-  document.getElementById("saisie").value = "";
+  document.getElementById("textoUsuario").value = "";
 
   textarea.focus();
 }
-
-
-/**------------------------ */
 
